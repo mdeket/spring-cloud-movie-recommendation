@@ -33,7 +33,7 @@ public class RecommendationController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public Collection<User> getAllUsers(){
         List<User> users = new ArrayList<>();
-        this.userRepo.findAll(0).forEach(u -> {
+        this.userRepo.findAll().forEach(u -> {
             users.add(u);
         });
         return users;
@@ -42,7 +42,7 @@ public class RecommendationController {
     @RequestMapping(value = "/movie", method = RequestMethod.GET)
     public Collection<Movie> getAllMovies(){
         List<Movie> movies = new ArrayList<>();
-        this.movieRepo.findAll(0).forEach(m -> {
+        this.movieRepo.findAll().forEach(m -> {
             movies.add(m);
         });
         return movies;
@@ -50,7 +50,7 @@ public class RecommendationController {
     
     @RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
     public User getUser(@PathVariable(name = "userId") Long userId){
-        return this.userRepo.findOne(userId, 0);
+        return this.userRepo.findOne(userId);
     }
     
     @RequestMapping(value = "/recommend/user/{userId}", method = RequestMethod.GET)
@@ -66,7 +66,7 @@ public class RecommendationController {
     
     @RequestMapping(value = "/movie/{movieId}", method = RequestMethod.GET)
     public Movie getMovie(@PathVariable(name = "movieId") Long movieId){
-        return this.movieRepo.findOne(movieId, 0);
+        return this.movieRepo.findOne(movieId);
     }
     
     @RequestMapping(value = "/dummyData", method = RequestMethod.GET)

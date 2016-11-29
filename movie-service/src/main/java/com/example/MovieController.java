@@ -51,8 +51,8 @@ public class MovieController {
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/{movieId}")
-    public Movie getMovie(@PathVariable(value = "movieId") String movieId){
-        return this.movieRepo.findOne(movieId);
+    public Movie getMovie(@PathVariable(value = "movieId") Long movieId){
+        return this.movieRepo.findByMovieId(movieId);
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/dummyData")
