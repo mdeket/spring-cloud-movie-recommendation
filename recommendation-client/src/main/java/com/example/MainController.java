@@ -45,7 +45,7 @@ public class MainController {
         } catch (ExecutionException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return dto.getMovies();
+        return dto.getMovies(); // if null, hystrix will call fallback method
     }
     
     public List<MovieDTO> recoveryRecommendation(Long id){

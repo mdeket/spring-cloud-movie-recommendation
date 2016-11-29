@@ -6,7 +6,6 @@
 package com.example;
 
 import com.google.gson.Gson;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -42,12 +41,7 @@ public class MovieController {
         System.out.println("Somebody found me!");
         Gson gson = new Gson();
         List<Double> idsList = (ArrayList<Double>)gson.fromJson(ids, ArrayList.class);
-//        System.out.println(Arrays.toString(ids));
         List<MovieDTO> retVal = new ArrayList();
-//        List<Integer> idsList = new ArrayList();
-//        for(int i = 0; i < ids.length; i++){
-//            idsList.add(ids[i]);
-//        }
         idsList.stream()
                 .forEach(id -> {
                     MovieDTO dto = new MovieDTO(this.movieRepo.findByMovieId(id.longValue()));
@@ -59,10 +53,6 @@ public class MovieController {
     @RequestMapping(method = RequestMethod.GET, value = "/{movieId}")
     public Movie getMovie(@PathVariable(value = "movieId") String movieId){
         return this.movieRepo.findOne(movieId);
-    }
-    
-    public Movie fallbackGetOneMovie(){
-        return new Movie("Fallback Movie", 0l);
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/dummyData")

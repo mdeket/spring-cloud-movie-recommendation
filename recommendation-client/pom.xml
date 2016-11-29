@@ -67,26 +67,16 @@
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
                 </dependency>
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-stream-rxjava</artifactId>
-                </dependency>
+
                 <dependency>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-hateoas</artifactId>
                 </dependency>
-	 <dependency>
-	  <groupId>com.netflix.hystrix</groupId>
-	  <artifactId>hystrix-javanica</artifactId>
-	  <version>1.4.15</version>
-	  <type>jar</type>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.springframework.cloud</groupId>
-	  <artifactId>spring-cloud-netflix-hystrix-dashboard</artifactId>
-	  <version>1.2.2.RELEASE</version>
-	  <type>jar</type>
-	 </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-netflix-hystrix-dashboard</artifactId>
+                    <type>jar</type>
+                </dependency>
 	</dependencies>
         
 	<dependencyManagement>

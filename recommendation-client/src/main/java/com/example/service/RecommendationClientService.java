@@ -10,7 +10,6 @@ import com.example.dto.RecommendationDTO;
 import com.example.dto.RecommendedMovieDTO;
 import com.example.dto.UserDTO;
 import com.google.gson.Gson;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -30,7 +29,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RecommendationClientService {
     
-    private static Logger LOGGER = Logger.getLogger(RecommendationClientService.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(RecommendationClientService.class.getName());
     
     @Autowired
     RestTemplate restTemplate;
@@ -86,7 +85,7 @@ public class RecommendationClientService {
                             new ParameterizedTypeReference<Collection<MovieDTO>>(){ };
                      ResponseEntity<Collection<MovieDTO>> movies = 
                         restTemplate.exchange("http://movie-service/movie/list?ids={ids}" , HttpMethod.GET, null, ptrMovie, idsString);
-                LOGGER.info("I've found some movies, maybe!");
+                LOGGER.info("I've found some movies!");
                 return movies.getBody();
         });
         return future;

@@ -14,8 +14,6 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @EnableHystrixDashboard
-//@EnableBinding(Source.class)
-//@RibbonClient(name = "recommendation-client", configuration = RibbonConfig.class)
 public class RecommendationClientApplication {
     
 	public static void main(String[] args) {
