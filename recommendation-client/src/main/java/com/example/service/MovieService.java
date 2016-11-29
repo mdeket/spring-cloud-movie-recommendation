@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author milandeket
  */
-@FeignClient("user-service")
+@FeignClient("movie-service")
 public interface MovieService {
     
     @RequestMapping(method = RequestMethod.GET, value = "/movie")
     Collection getMovies();
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/movie/dummyData")
+    void insertDummyData();
     
 }

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"stores.movie"},{"v":1,"key":{"name":1},"name":"name","ns":"stores.movie"},{"v":1,"key":{"movieId":1},"name":"movieId","ns":"stores.movie"}]}

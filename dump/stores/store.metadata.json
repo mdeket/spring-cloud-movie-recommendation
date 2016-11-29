@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"stores.store"},{"v":1,"key":{"address.location":"2d"},"name":"address.location","ns":"stores.store","min":-180,"max":180,"bits":26}]}

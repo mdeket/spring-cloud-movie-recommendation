@@ -74,6 +74,10 @@ public class MovieController {
         this.movieRepo.save(new Movie("One Flew Over the Cuckoo's Nest", 14l));
         this.movieRepo.save(new Movie("Goodfellas", 15l));
         this.movieRepo.save(new Movie("The Matrix", 16l));
+        this.movieRepo.save(new Movie("Goodfellas", 15l));
+        this.movieRepo.save(new Movie("The Matrix", 16l));
+        this.movieRepo.save(new Movie("Rocky", 17l));
+        this.movieRepo.save(new Movie("Old boy", 18l));
     }
     
 }

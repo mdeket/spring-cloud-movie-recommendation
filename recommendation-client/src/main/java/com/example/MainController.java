@@ -8,15 +8,20 @@ package com.example;
 import com.example.dto.MovieDTO;
 import com.example.dto.RecommendationDTO;
 import com.example.dto.UserDTO;
+import com.example.service.MovieService;
 import com.example.service.RecommendationClientService;
+import com.example.service.RecommendationService;
 import com.example.service.UserService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.ribbon.proxy.annotation.Http;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
     
     @Autowired
-    private RecommendationClientService recommendationService;
+    private RecommendationClientService recommendationClientService;
     
     @Autowired
     private UserService userService;
@@ -41,7 +46,7 @@ public class MainController {
     public List<MovieDTO> getRecommendation(@PathVariable(value = "userId") Long userId) throws InterruptedException{
         RecommendationDTO dto = null;
         try {
-            dto = this.recommendationService.getRecommendationData(userId).get();
+            dto = this.recommendationClientService.getRecommendationData(userId).get();
         } catch (ExecutionException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
