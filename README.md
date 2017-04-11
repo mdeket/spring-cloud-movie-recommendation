@@ -17,7 +17,7 @@ This reference application uses the following mixture of databases.
 * MongoDB - Document Store
 ## Postman
 
-Use Postman to make request. Collection of all request are exported and can be found in root of this repository.
+Use Postman to make requests. Collection of all requests are exported and can be found in root of this repository.
 
 ## Config Service
 
